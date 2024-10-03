@@ -103,7 +103,7 @@ rm -r carpeta_creada
 ```
 
 
-## Git / GitHub
+## Git
 Ahora iniciaremos con el control de versiones GIT y los repositorios existentes en GITHUB. 
 Aclararemos que utilizaremos git tanto en Windows como en Ubuntu, se espcificará antes en cual de los entornos estamos trabajando.
 
@@ -143,7 +143,7 @@ code .
 git config --global init.defaultBranch main
 ```
 
-### Usando Git de forma Local
+### Usando Git
 Github no es lo mismo a Git, es cierto que comparten comandos y funcionalidad pero, es debido a que GitHub es una plataforma desarrollada en base al Git y que opera utiliza sus comandos. Ahora nos centraremos en revisar el flujo de trabajo en archivos locales. 
 - Crearemos e ingresamos a la carpeta donde haremos las modificaciones
   ```
@@ -187,4 +187,107 @@ Github no es lo mismo a Git, es cierto que comparten comandos y funcionalidad pe
   git status
   ```
 
-- Modificación de archivos 
+- Modificación de archivos
+  > Modificaremos el contenido del archivo primer_archivo.c
+  ```
+  gedit primer_archivo.c
+  ```
+  > Se abrirá una nueva ventano donde codificaremos lo siguiente, mas adelante compilaremos y ejecutaremos.
+  ```
+  #include <stdio.h>
+  int main(){
+	  for (int i=0; i<10;i++){
+		  printf("%d\n",i);
+	  }
+  }
+  ```
+  Ingresaremos a primera_carpeta y añadiremos un documento de texto
+  > Ingresa al documento utilizando *vim* o *nano* y modifica su contenido
+  ```
+  cd primera_carpeta
+  touch documento.txt
+  ```
+  Observaremos los cambios en el control de versiones
+  > Describirá los cambios ocurridos
+  ```
+  git status
+  ```
+  Añadiremos y Commitearemos el desarrollo
+  ```
+  git add .
+  git commit -m "Modificación primer_archivo y nuevo archivo en carpeta"
+  ```
+- Creación de una nueva branch (rama)
+  Las ramas son empleadas para hacer cambios seguros al documento oficial. Debido a que se crea una copia identica de los documentos trackeados.
+  > Creamos una branch llamada nueva_rama y nos movemos usando checkout
+  ```
+  git branch rama_nueva
+  git checkout rama_nueva
+  ```
+  > Podemos simplificar cuando recien la crearemos
+  ```
+  git branch -b rama_nueva
+  ```
+  Modificaremos el documento primer_documento.c de la siguietne forma:
+  > Recordar que debemos de ingresar utilizando algun visor de texto
+  ```
+  #include <stdio.h>
+  int main(){
+	  for (int i=0; i<10;i++){
+		  printf("%d\n",i*i);
+	  }
+  }
+  ```
+  Agregaremos un nuevo archivo dentro de la carpeta y tambien modificaremos el existente
+  > Nuevo archivo
+  ```
+  touch documento2.txt
+  ```
+  > Modificar archivo
+  ```
+  Hola esta es una modificacion en la branch: nueva_rama
+  ```
+  Repetiremos el proceso de añadir y commit
+- Moviendonos entre commits
+  Una gran funcionalidad de git es el hecho de que todo lo que has realizado puede recuperarse. Restaurar versiones anteriores, explorar ramas y juntarlas o merge, que veremos mas adelante.
+  > Visualizamos
+  ```
+  git log
+  ```
+  > Visualización mas ordenada
+  ```
+  git log --oneline
+  ```
+  Para saltar entre los commits podemos emplear las primeras letras identificadores de cada branch
+  > En este caso puede que cada uno tenga un número diferente, estar atento.
+  ```
+  git checkout "segundo commit numero"
+  ```
+  Revisar la lista de los commit realizados, bueno ahora unicamente tenemos el anterior. Los cambios superiro no estan disponibles para observarlos, sin embargo, podemos dirigirnos ahí.
+  > Revisamos los commits disponibles
+  ```
+  git log --oneline
+  ```
+  > Regresamos a nuestro commit inicial
+  ```
+  git 
+  ```
+- Merge y culminación de una rama
+  Finalmente, la ultima parte antes de llegar al KiCAD y parte de la programación es entender a fusionar estos cambios
+  > Nos situaremos en la rama main (principal) y en el último commit
+  ```
+  git checkout main
+  git checkout "ultimo_commit"
+  ```
+  Realizamos el proceso de merge con la branch: "rama_nueva"
+  > Consideraciones
+  ```
+  git merge rama_actual rama_nueva
+  ```
+  > Deberemos de solucionar los problemas
+  Finalmente exploramos los archivos y observamos los cambios jiji
+
+
+## KiCAD
+Para ello cada uno de nosotros trabajaremos en un archivo del 
+  
