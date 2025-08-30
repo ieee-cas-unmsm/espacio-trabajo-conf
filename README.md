@@ -1,5 +1,5 @@
 # Configuración de entorno - Septiembre 2024
-
+Realizando modificaciones de prueba
 ### **Objetivos**  
 > Entender la dinámica de trabajo grupal con GitHub  
 > Aprender diseño de circuito impreso en KiCAD 
